@@ -1,0 +1,203 @@
+Javascript
+
+Day 1
+
+#Variables
+1. let (can be changed)
+2. const (non-changeable)
+3. var (it has no functional scope and hence it is not advised to use this variable anymore)
+
+*  In javascript variables that are not defined will show the value as undefined
+
+** In javascript variables can be declared without assigning any keyword i.e,
+   let userId = 122345 
+   and, 
+   userId = 122345 	will be considered same
+
+#Datatypes
+-> Primitive datatypes (call by value)
+	i. number
+	ii. string
+	iii. boolean
+	iv. null 
+	* (typeof null) -> object
+	v. undefined
+-> Non-primitive datatypes (call by reference)
+	i. array
+	ii. object
+	iii. function
+
+
+
+
+Day 2
+
+#Conversion of Datatypes
+1. Conversion into Number {Syntax -> let variableName = Number (variableToBeConverted)}
+
+-> string "33" gets converted into number and returns value 33
+-> string "33abc" gets converted into number and returns value NaN
+-> string "Manish" gets converted into number and returns value NaN
+-> null gets converted into a number and returns 0
+-> undefined gets converted into a number and returns value NaN
+-> true gets converted into a number and returns value 1
+-> false gets converted into a number and returns value 0
+
+2. Conversion into Boolean {Syntax -> let variableName = Boolean (variableToBeConverted)}
+
+-> string "" gets converted into boolean and returns value false
+-> string "Manish" gets converted into boolean and returns value true
+-> number 1 gets converted into boolean and returns value true
+-> number 0 gets converted into boolean and returns value false
+
+
+
+
+Day 3
+
+#Memory Allocation
+
+* Stack Memory 
+-> Primitive datatypes are stored 
+-> When a variable is called the memory sends a copy of it, the alterations are made in the copy of the variable 
+   and the original value is kept intact
+
+* Heap Memory
+-> Non-primitive datatypes are stored ( Array, Object and Function )
+-> When a variable is called the memory sends its reference is shared, the alterations are made in the original
+   value of the variable
+
+
+#Comparison Operators
+
+* Equality check and comparison operators operate differently
+-> console.log(null>0) -> converts null into number 0; returns false
+-> console.log(null==0) -> converts null into NaN; returns false
+-> console.log(null>=0) -> converts null into number 0; returns true
+
+
+
+
+Day 4
+
+# Strings
+
+let name = "Chandrachood Chauhan"
+
+// another way of declaring a string
+
+let userName = new String("Chandrachood Chauhan")
+let stringLength = userName.length
+
+// methods in string
+
+console.log(userName.charAt(5));                                        // display the character at index 5 in the string
+console.log(`The String '${userName}' has ${stringLength} characters`); // concating strings 
+
+console.log(userName.substring(3, 5));                // displays the string from index 3 to index (5-1) = 4
+console.log(userName.substring(3));
+console.log(userName.substring('r', 8));             // treats the value 'r' as 0 and displays the string upto index (8-1) = 7
+console.log(userName.substring('r'));
+console.log(userName.substring(-1, 8));             // treats the value -1 as 0 and displays the string upto index 7
+console.log(userName.substring(-1));
+
+
+// another method of concating string
+let str = "My name is "
+console.log(str.concat(" ", userName));
+
+console.log(str.endsWith("is ")); // checks whether the String ends with the given String 
+console.log(str.includes("is"));  // checks whether the String contains the given String
+
+let str1 = "     Hello World"
+console.log(str1);
+console.log(str1.trim());
+
+console.log(userName.indexOf("a"));
+console.log(userName.lastIndexOf("a"));
+
+let str2 = "HeLlo WoRld"
+console.log(str2.toLowerCase());
+console.log(str2.toUpperCase());
+
+// another way of extraction of extraction of string
+
+let paragraph = "The quick brown fox jumps over the lazy dog."
+console.log(paragraph.slice(3, 9));
+console.log(paragraph.slice(3));
+console.log(paragraph.slice(-9, -5));
+
+// coverting a String into an array
+
+let words = paragraph.split(" ")    // splits the String into individual words
+let chars = paragraph.split("")     // splits the String into individual characters
+console.log(words);
+console.log(chars);
+console.log(words[3]);
+console.log(chars[8]);
+
+// replacing a String with new String 
+
+console.log(paragraph.replace(" ", "-"));
+console.log(paragraph.replaceAll(" ", "-"));
+
+
+
+
+Day 5 
+
+# Numbers and Maths
+
+let score = 400                 // creates a variable score of Type Number
+console.log(score);             
+
+let balance = new Number(100)   // creates a new object balance that contains the Number 100
+console.log(balance);           
+
+// Methods in Number datatype
+
+let num1 = 1000
+
+console.log(num1.toString());           // converts the Number into a String 
+console.log(num1.toString().length);    // all methods of Strings are applicable afterwards
+console.log(num1.toFixed(3));           // displays upto 3 decimal places
+
+let num2 = 23.8966
+let num3 = 123.8966
+console.log(num2.toPrecision(3));       // rounds off the number into 3 characters and converts it into a String
+console.log(num3.toPrecision(3));       
+
+let num4 = 100000000
+console.log(num4.toLocaleString());            // converts the number into String of en-US standards -> '100,000,000'
+console.log(num4.toLocaleString("en-IN"));     // converts the number into String of en-IN standards -> '10,00,00,000'
+
+
+/********************************************Maths Library*********************************************************/
+
+console.log(Math);  
+//Functions of Math Library
+console.log(Math.abs(-67));
+console.log(Math.round(98.3));
+console.log(Math.ceil(98.3));
+console.log(Math.floor(98.3));
+console.log(Math.max(4, 5, 9,3, 2, 1));
+
+// Generating random numbers in Javascript
+
+console.log(Math.random());     // Generates random numbers between 0 and 1
+console.log((Math.random()*10) + 1); 
+console.log(Math.floor((Math.random()*10)) + 1);    // converts the decimal number generated into an integer
+
+// another way of generating random under given constraints
+
+const min = 10
+const max = 20
+
+console.log(Math.floor(Math.random() * (max - min + 1)) + 10); // generates random number between 10 and 20
+
+
+
+
+Day 6
+
+
