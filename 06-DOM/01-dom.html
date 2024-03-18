@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body style="background-color: black;
+color: white;">
+    <div class="parent">
+        <p class="child">Monday</p>
+        <p class="child">Tuesday</p>
+        <p class="child">Wednesday</p>
+        <p class="child">Thursday</p>
+    </div>
+</body>
+
+<script>
+    const element = document.querySelector(".parent")
+ //    console.log(element);
+ //    console.log(element.children);        // accessing children of an element
+ //    console.log(element.children[1]);
+
+ for (let i = 0; i < element.children.length; i++) {
+     element.children[2].innerHTML = "Friday"
+     
+ }
+
+ const dayOne = document.querySelector(".child")
+ // console.log(dayOne);
+ // console.log(dayOne.parentElement);
+ // console.log(dayOne.nextElementSibling);
+
+ console.log("NODES: ", element.childNodes);
+ </script>
+ 
+</html>
