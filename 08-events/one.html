@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" src="eiffel-tower.jpeg" alt="eiffel-tower" id="eiffel"></li>
+            <li><img width="200px" src="astronaut.jpeg" alt="" id="astronaut"></li>
+            <li><img width="200px" src="sunflower.jpeg" alt="" id="sunflower"></li>
+            <li><img width="200px" src="hamster.jpeg" id="hamster" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://www.google.com/" id="google">Google</a></li>
+        </ul>
+    </div>
+
+</body>
+
+
+<script>
+    // basic approach of handling events
+
+    // document.querySelector('#astronaut').onclick = function () {
+    //     alert('astronaut clicked')
+    // }
+
+    // best approach to handle events
+    
+    // document.querySelector('#astronaut').addEventListener('click', (e) => {
+    //     console.log(e);
+    // }, false)
+
+
+    // document.querySelector('#images').addEventListener('click', (e) => {
+    //     console.log('images clicked');
+    // }, false)
+
+    // document.querySelector('#astronaut').addEventListener('click', (e) => {
+    //     console.log('astronaut clicked');
+    //     e.stopPropagation() // It will stop the propagation at bubbling phase and not move to capturing phase
+    // }, false)
+
+
+    // document.querySelector('#google').addEventListener('click', (e) => {
+    //     e.preventDefault()
+    // })
+
+
+    // Assignment
+
+    // document.querySelector('#images').addEventListener('click', (e) => {
+    //     console.log(e.target.parentNode);
+    //     const image = e.target.parentNode
+    //     image.remove() // event spillover occurs when clicked on the anchor link and the whole ul gets deleted
+    // })
+
+    document.querySelector('#images').addEventListener('click', (e) => {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG'){
+            const image = e.target.parentNode
+            image.remove()
+        }
+    })
+</script>
+</html>
