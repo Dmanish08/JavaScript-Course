@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+
+    <style>
+        body{
+            background-color: #212121;
+            color: aliceblue;
+        }
+
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card{
+            background-color: #565555;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <div id="avatar"></div>
+            <div id="name"></div>
+
+            <button id="add">ADD</button>
+        </div>
+    </div>
+        
+</body>
+
+<script>
+    const url = `https://api.github.com/users/Dmanish08`
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', url)
+    // console.log(xhr.readyState)
+    xhr.onreadystatechange = function(){
+        // console.log(xhr.readyState);
+        if (xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+
+            const avatar = data.avatar_url
+            const name = data.name
+
+            const avatarHolder = document.getElementById("avatar")
+            const nameHolder = document.getElementById("name")
+
+
+            document.getElementById("add").addEventListener('click', () => {
+                avatarHolder.innerHTML = `<img src="${avatar}" alt="Avatar">`
+                nameHolder.innerHTML = `<h2>${name}</h2>`
+            })
+        }
+    }
+
+    xhr.send()
+</script>
+</html>
